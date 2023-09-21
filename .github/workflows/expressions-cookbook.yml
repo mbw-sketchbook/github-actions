@@ -1,0 +1,20 @@
+name: GitHub Expressions Cookbook
+
+on: push
+
+
+jobs:
+
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      # Use the idiomatic ternary expression to set the value of FOO
+      FOO: ${{ github.event_name == 'push' && 'bar' || 'baz' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, ${{ env.FOO }}!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
