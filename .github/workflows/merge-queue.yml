@@ -1,0 +1,15 @@
+name: Using Merge Queues
+
+on:
+  pull_request:
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sleep 60
+      - run: echo "Hello, world!"
